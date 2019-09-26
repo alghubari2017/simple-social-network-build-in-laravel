@@ -1,0 +1,112 @@
+.mycolor {
+    color: white;
+}
+.border-left{
+    border-bottom-left-radius: #e1e1e1;
+
+}
+.border-ntop{
+    border-top-color: rgb(199, 16, 16);
+}
+.border-right{
+    border-bottom-right-radius: #e1e1e1;
+}
+.border-top{
+    border-top: #e1e1e1;
+}
+.border-bottom{
+    border-bottom: #e1e1e1;
+}
+.background-green{
+  background-color: green  ;
+}
+.background-red{
+    background-color: red  ;
+  }
+  .background-orange{
+    background-color: orange  ;
+  }
+.creat-post{
+ 
+ float: right;  
+  
+  
+}
+.card-body{
+    border:1px #e1e1e1 solid ;
+}
+.img-thumbnail:hover{
+    transform: matrix(-1,0,0,1,0,0);
+
+}
+.imguseronpost{
+
+    border-radius: 30%;
+  
+   
+}
+.nameuserpost{
+    
+    color: red;
+}
+.app{
+    width:100%;
+    background-color: aqua  ;
+
+}
+.righttoleft{
+    float: right;
+    margin-right: 3px;
+}
+
+     .col-75 {
+      width: 100%;
+      margin-top: 5px;
+    }
+  
+.header-left{
+    float:left;
+    background-color: black  ;
+    width:45%;
+    
+}
+.container-main{
+    
+    margin-right:8%;
+    margin-left:8%;
+ 
+    background-color: black  ;
+}
+.container-post{
+    
+    margin-right:25%;
+    margin-left:25%;
+ 
+    background-color: white  ;
+}
+
+.header-right{
+    float:right;
+    background-color:black ;
+   
+    width:50%;
+    
+}
+.card{
+  
+}
+.col-md-8{
+
+    
+}
+.row {
+   
+   
+
+}
+.container1{
+    
+
+    
+   
+}
