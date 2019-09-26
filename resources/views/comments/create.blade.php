@@ -67,7 +67,9 @@
   
   <button type="submit" class="btn btn-primary background-green righttoleft">Add Post</button>
   
-  
+  <button type="submit" class="btn btn-primary background-orange righttoleft">Edite</button>
+  <button type="submit" class="btn btn-primary background-red righttoleft">Delete</button>
+  <button type="submit" class="btn btn-primary background-color  righttoleft">Share</button>
   
 </form>
 
@@ -75,88 +77,78 @@
                       </div>
                       <br><br><br>
 
-                
-
-
-               @if($posts->count()>0)
-               @foreach($posts as $post)
-               <div class="card "  style="width:90%; margin-left:5%; background:#e1e1e1; ">
-               <div class="card-body">
+                        
+                      <table class="table ">
   
-   
-    <a href="#" class="card-link"><img class="imguseronpost" src="{{$post->photo}}"   width="7%" alt="{{$post->photo}}"></a>
-    <a href="#" class="card-link" style="margin-right:50%;">ali alghubari</a>
-    <a href="#" class="card-link" >option</a>
-  </div>
+  <tbody>
 
-  <img class="img-thumbnail" src="{{$post->photo}}" hieght="100%"  width="100%" alt="" >
-  <div class="card-body" style="background:white">
-    
-    <p class="card-text">{{$post->content}}.</p>
-  </div>
+  @if($posts->count()>0)
+  @foreach($posts as $post)
+  <div class=" table-responsive-sm background-green">
   
-  <div class="card-body" style="background:white">
-    <a href="#" class="card-link">like</a>
-    <a href="#" class="card-link" style="margin-right:60%;">dislike</a>
-    <a href="#" class="card-link" >share</a>
-  </div>
-  <div class="card-body">
-  <form>
- 
-    <div class="form-group">
+   <tr class="border-top background-orange border-right">
+
+      <td class="border-left border-bottom "><a href=""><img class="imguseronpost" src="{{$post->photo}}"   width="100px" alt="{{$post->photo}}"></a></td>
+      <th class="border-bottom" scope="row"><a class="nameuserpost" href="">ali alghubari</a></th>
+      <th class="border-bottom"scope="row">
+<div class="dropdown background-orange">
+         <button class="btn btn-secondary dropdown-toggle background-orange" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             ---             
+   </button>
+  <div class="dropdown-menu background-orange" aria-labelledby="dropdownMenuButton">
+   <a class="dropdown-item" href="{{route('posts.delet',['id'=>$post->id])}}">Delete</a>
+   <a class="dropdown-item" href="{{route('posts.edit',['id'=>$post->id])}}">Edit</a>
+   <a class="dropdown-item" href="#">Hide Post</a>
+</div>
+</div>
+</th>
+</tr>
+       <tr class="border-right">
+      <th class="border-left"scope="row"></th>
+      <td>{{$post->content}}</td>
+      <th scope="row"></th>
+
+      </tr> 
+
+      <tr class="border-right">
      
-      <textarea class="form-control " name="content" rows="2" cols="7"></textarea>
-    </div>
-    
-    
-  
-  <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">add Comment</button>
-    </div>
-</form>
-  </div>
-  <div class="card-body">
-  <div class="card mb-3" style="max-width: 600px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-    <img class="imguseronpost" src="{{$post->photo}}"   width="20%" alt="{{$post->photo}}">
-    </div>
-    <div class="col-md-8">
-      
-        
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+     
+       <td colspan="3"><img class="img-thumbnail" src="{{$post->photo}}" hieght="100%"  width="100%" alt="" ></td>
        
-    <a href="#" class="card-link">like</a>
-    <a href="#" class="card-link" style="margin-right:60%;">replay</a>
-   
- 
+      </tr> 
+      <tr class="border-right">
+      <td class="border-left"><a href="">20  </a></td>
+      <th ><a href=""> 30  </a></th>
+      <th><a href="">100 </a></th>
+      </tr>
+      <tr class="border-right border-bottom">
+      <td class="border-left"><a href="">Like</a></td>
+      <th ><a href="">Dislike</a></th>
+      <th ><a href="">Comment</a></th>
+      </tr >
+      <tr>
+      <td ><a href=""> </a></td>
+      <th ><a href="">   </a></th>
+      <th ><a href="">  </a></th>
+      </tr>
      
     </div>
-  </div>
-</div>
-    
-  </div>
-  
- 
-</div>
-<br><br><br>
-
-@endforeach
+    @endforeach
     @else
     no recorder
     @endif
 
+  
 
 
 
+</tbody>
+</table>    
 
-
-
-
-
-
-
-
+               </div>
+               ========================================================================
+          
+           </div>
            
         </div>
         
