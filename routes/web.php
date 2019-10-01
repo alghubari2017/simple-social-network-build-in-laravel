@@ -54,6 +54,17 @@ Route::post('/user/store', 'UserController@store')->name('user.store');
 Route::get('/user/admin/{id}', 'UserController@admin')->name('user.admin');
 Route::get('/user/notadmin/{id}', 'UserController@notadmin')->name('user.notadmin');
 
+
+
+
+Route::get('/user/index', 'UserController@index')->name('user.index');
+Route::post('/comment/store/{post_id}/{user_id}', 'CommentController@store')->name('comment.store');
+Route::get('/user/admin/{id}', 'UserController@admin')->name('user.admin');
+Route::get('/user/notadmin/{id}', 'UserController@notadmin')->name('user.notadmin');
+
+
+
+
 Route::get('/ali',function(){
 
  // return  App\category::find(4)->posts;

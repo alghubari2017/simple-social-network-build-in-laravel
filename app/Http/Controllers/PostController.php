@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
 use App\Tag;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -37,7 +38,7 @@ class PostController extends Controller
     public function create()
     {
         $tags =Tag::all();
-        return(view('posts.create'))->with('categories',Category::all())->with('tags',$tags)->with('posts',Post::all()) ; 
+        return(view('posts.create'))->with('categories',Category::all())->with('tags',$tags)->with('posts',Post::all())->with('comments',Comment::all()) ; 
     }
 
     /**

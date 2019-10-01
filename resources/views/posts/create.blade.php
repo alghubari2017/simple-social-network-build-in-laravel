@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container"> 
+<div class="container" style=" background-color: #e1e1e1; " > 
     <div class="row justify-content-center"> 
          <div class="col-md-8">
             <div class="card">
@@ -73,20 +73,27 @@
 
 
                       </div>
+                      </div>
+        
+        </div>
+        
+    </div>
                       <br><br><br>
 
-                
+                      <div class="container" style=" background-color: #e1e1e1; " > 
+    <div class="row justify-content-center"> 
+         <div class="col-md-8">
 
 
                @if($posts->count()>0)
                @foreach($posts as $post)
-               <div class="card "  style="width:90%; margin-left:5%; background:#e1e1e1; ">
+               <div class="card "  style="width:90%; margin-left:5%; background:white; ">
                <div class="card-body">
   
    
     <a href="#" class="card-link"><img class="imguseronpost" src="{{$post->photo}}"   width="7%" alt="{{$post->photo}}"></a>
-    <a href="#" class="card-link" style="margin-right:50%;">ali alghubari</a>
-    <a href="#" class="card-link" >option</a>
+    <a href="#" class="card-link" style="margin-right:50%; color:green; font-weight: bold;">ali alghubari</a>
+    <a href="#" class="card-link"  style="color:orange; font-weight: bold;">option</a>
   </div>
 
   <img class="img-thumbnail" src="{{$post->photo}}" hieght="100%"  width="100%" alt="" >
@@ -96,16 +103,16 @@
   </div>
   
   <div class="card-body" style="background:white">
-    <a href="#" class="card-link">like</a>
-    <a href="#" class="card-link" style="margin-right:60%;">dislike</a>
-    <a href="#" class="card-link" >share</a>
+    <a href="#" class="card-link" style="color:green; font-weight: bold; ">like</a>
+    <a href="#" class="card-link" style="margin-right:60%; color:red; font-weight: bold;">dislike</a>
+    <a href="#" class="card-link" style="color:blue ; font-weight: bold;" >share</a>
   </div>
   <div class="card-body">
-  <form>
- 
+  <form    action="{{ route('comment.store',['post_id'=>$post->id,'user_id'=>Auth::user()->id ]) }}" method="POST" >
+  {{csrf_field()}}
     <div class="form-group">
      
-      <textarea class="form-control " name="content" rows="2" cols="7"></textarea>
+      <textarea class="form-control " name="comment" rows="2" cols="7"></textarea>
     </div>
     
     
@@ -115,25 +122,56 @@
     </div>
 </form>
   </div>
-  <div class="card-body">
-  <div class="card mb-3" style="max-width: 600px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-    <img class="imguseronpost" src="{{$post->photo}}"   width="20%" alt="{{$post->photo}}">
-    </div>
-    <div class="col-md-8">
-      
-        
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-       
-    <a href="#" class="card-link">like</a>
-    <a href="#" class="card-link" style="margin-right:60%;">replay</a>
-   
+  <div class="card-body" style="">
  
+    
+    
+    @foreach($comments as $comment)
+       
+        @if($post->id == $comment->post_id)
+        <div class="card " style="background:#e1e1e1; display: inline-block; margin-bottom: 5px; width:max-content;   border-radius: 50px 50px 50px; ">
+        
+        <table>
+          
+  <tr>
+    
+ 
+    <td> <a href="#" class="card-link"><img style="border-radius: 50%;" src="{{$post->photo}}"   width="50px" alt="{{$post->photo}}"></a><a href="#" style=" font-weight: bold;padding-left:1px;">ali alghubari</a></td>
+    
+    <td style="word-wrap:break-word">{{$comment->comment}}</td>
+  </tr>
+ 
+</table>
+
+       
+       
      
-    </div>
-  </div>
+
+
+        
+       
+      
 </div>
+
+<table style="margin-left:30px;  ">
+          
+          <tr >
+            
+         
+            <td style="padding-left:5px;  "> <a href="#" class="card-link"  style=" font-size: 13px; color:green; font-weight: bold;">like</a></td>
+            <td style="padding-left:5px;  "> <a href="#" class="card-link"  style=" font-size: 13px; color:red; font-weight: bold;">dislike</a></td>
+            <td style="padding-left:5px;  "> <a href="#" class="card-link"style=" font-size: 13px; color:orange; font-weight: bold;" >replay</a></td>
+            <td style="padding-left:5px;  "> <a href="#" class="card-link" style=" font-size: 13px; color:pink; font-weight: bold;">since 1 minute</a></td>
+           
+          </tr>
+         
+        </table>
+       @endif
+   
+  @endforeach
+     
+  
+ 
     
   </div>
   
@@ -146,6 +184,7 @@
     no recorder
     @endif
 
+   
 
 
 
@@ -156,12 +195,6 @@
 
 
 
-
-           
-        </div>
-        
-    </div>
-    
-</div>
+     
     
 @endsection

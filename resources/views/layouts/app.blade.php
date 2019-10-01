@@ -21,7 +21,7 @@
     <link href="{{ asset('css/we.css') }}" rel="stylesheet">
     <style>
             html, body {
-                background-color:#e1e1e1;
+                
                 
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -31,7 +31,7 @@
             
            
             .container{
-                background-color: #0099ff; 
+                background-color: green; 
                 
                 
             }
@@ -159,7 +159,10 @@
             </div>
         </nav>
 
-        <main class="py-4 bg-ligh">
+       
+    </div>
+    <div style="background:white">
+    <main class="py-4 bg-ligh">
             @yield('content')
         </main>
     </div>
